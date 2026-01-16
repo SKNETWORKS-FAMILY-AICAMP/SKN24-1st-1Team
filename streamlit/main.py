@@ -1,4 +1,10 @@
 import streamlit as st
+import common
+
+
+search_map = common.search_box()
+print(search_map)
+
 
 
 
