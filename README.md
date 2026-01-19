@@ -21,15 +21,15 @@
 
 ![python](https://img.shields.io/badge/python-0098FF.svg?style=for-the-badge&logo=python&logoColor=yellow) ![mysql](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![git](https://img.shields.io/badge/git-F05032.svg?style=for-the-badge&logo=git&logoColor=white) ![streamlit](https://img.shields.io/badge/streamlit-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white) ![selenium](https://img.shields.io/badge/selenium-43B02A.svg?style=for-the-badge&logo=selenium&logoColor=white) ![beautifulsoup](https://img.shields.io/badge/beautifulsoup-gray.svg?style=for-the-badge&logoColor=white)![pandas](https://img.shields.io/badge/pandas-150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
-국토교통통계누리<br>
+국토교통통계누리(교통사고)<br>
 https://stat.molit.go.kr/portal/cate/statView.do?hRsId=58&hFormId=5498&hDivEng=&month_yn=<br>
-국가통계포털<br>
+국가통계포털(자동차등록현황)<br>
 https://kosis.kr/index/index.do<br>
-한국 인구수 통계<br>
+한국 인구수 통계(인구수)<br>
 https://jumin.mois.go.kr/<br>
-국토교통부 민원마당<br>
+국토교통부 민원마당(FAQ)<br>
 https://eminwon.molit.go.kr/faqList.do<br>
-한국교통안전공단<br>
+한국교통안전공단(FAQ)<br>
 https://main.kotsa.or.kr/portal/bbs/faq_list.do?menuCode=04010100<br>
 
 ## WBS
