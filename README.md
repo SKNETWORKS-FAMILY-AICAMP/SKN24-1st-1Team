@@ -1,4 +1,4 @@
-<img width="913" height="857" alt="image" src="https://github.com/user-attachments/assets/1ba2e032-5737-401e-a052-3819b54d5f21" /># SKN24-1st-1Team
+# SKN24-1st-1Team
 
 ## 도로지킴이 소개
 
@@ -57,9 +57,6 @@
 └── app.py                      
 ```
 
-
-
-WBS
 
 요구사항 명세서
 
