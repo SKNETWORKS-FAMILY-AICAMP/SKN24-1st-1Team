@@ -38,10 +38,9 @@ def select_faq(where_dict=None):
     rows = []
     if connection.is_connected():
         sql = """
-                SELECT
-                    QUESTION, ANSWER, INST_NM
-                FROM tbl_faq
-            """
+            SELECT QUESTION, ANSWER, INST_NM
+            FROM tbl_faq
+        """
         params = []
 
         if where_dict:

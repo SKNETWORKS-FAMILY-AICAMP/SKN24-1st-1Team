@@ -1,6 +1,4 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -8,7 +6,8 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.request import urlretrieve
 from sql import faq_sql
-import time
+
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 def update_faq2() :
     path = 'chromedriver.exe'
@@ -16,8 +15,6 @@ def update_faq2() :
     driver = webdriver.Chrome(service=service)
     wait = WebDriverWait(driver, 15)
     
-    # for i in range(2) :
-        # url = f"https://main.kotsa.or.kr/portal/bbs/faq_list.do?menuCode=04010100&pageNumb={i+1}"
     url = "https://main.kotsa.or.kr/portal/bbs/faq_list.do?menuCode=04010100"
     driver.get(url)
 

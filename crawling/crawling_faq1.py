@@ -1,4 +1,4 @@
-import sys, os, re, time
+import sys, os, re
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from pathlib import Path
 
@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 
 base = "https://eminwon.molit.go.kr"
 
+# 디테일 내용은 faqContents.do API에서 HTML의 내용 가져오기 때문에 따로 BEAUTIFULSOUP 사용
 def get_faq_detail(session, faq_id):
     url = base + "/faqContents.do?"
     r = session.post(url, data={"faqId": str(faq_id)}, timeout=30)
@@ -59,12 +60,14 @@ def update_faq1():
             m = re.search(r"fn_select_faqContents\('(\d+)'\)", onclick)
             if not m:
                 continue
-
+            
+            # onclick attr안에 있는 faq_id 받아오기
             faq_id = m.group(1)
             question = a.text.strip()
             if not question:
                 continue
-
+            
+            # 디테일 내용은 faqContents.do API에서 HTML의 내용 가져오기 때문에 따로 BEAUTIFULSOUP 사용
             answer = get_faq_detail(session, faq_id)
             faq_list.append((question, answer, '국토교통부 민원마당'))
 
@@ -74,4 +77,5 @@ def update_faq1():
     finally:
         driver.quit()
 
+# 크롤링 실행
 update_faq1()
