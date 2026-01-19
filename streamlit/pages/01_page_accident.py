@@ -1,64 +1,69 @@
-import requests
 import streamlit as st
-import folium
 import pandas as pd
-from streamlit_folium import st_folium
 import common
-
-
+import numpy as np
 
 search_map = common.search_box()
 
+sql = f"""select * 
+            from TBL_ACDNT 
+            where ACDNT_YR like '{search_map['target_year'][0]}' 
+            and car_code like '{search_map['target_veh'][0]}' """
 
-sql = "select * from TBL_ACDNT"
-temp_rows = common.getDataFromDb(sql)
+cnt_list  =  []
+cnt_rows = common.getDataFromDb(sql)
+for item in cnt_rows:
+    cnt_list.append({item[4]: item[3]})
 
-
-for item in temp_rows :
-    print(item)
-
-test_data = {
-    'CTY_NM': common.area_list,
-    'ACDNT_NOCS': [14524, 6001, 10000, 13334, 20001, 26667, 30001, 33334, 40000, 46667, 53334, 60000, 66667, 73334, 80000, 86667, 93334, 99999]
-}
-accident_data = pd.DataFrame(test_data)
-
-
-
-# api 보내서 우리나라 행정구역 경계 데이터 받아옴
-@st.cache_data
-def get_geojson_data():
-    url = 'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2013/json/skorea_provinces_geo_simple.json'
-    response = requests.get(url)
-    return response.json()
-geojson_data = get_geojson_data()
+area_list = []
+area_rows = common.get_area_list()
+for item in area_rows:  
+    area_list.append({item[0]:item[1]})
 
 
-# folium 객체
-f_map = folium.Map(
-    location=[36.5, 127.5], 
-    zoom_start=7,
-    max_bounds=[(32, 123), (40, 133)]
-)
+cnt_map = {}
+for item in cnt_list: 
+    for key, val in item.items(): 
+        cnt_map[key] = val
 
 
-thresholds = [6000, 12000, 18000, 30000, 50000, 75000, 100000]
-folium.Choropleth(
-    geo_data=geojson_data, # 지역별 경계선을 나누는 데이터
-    data=accident_data, # 지역별 가지고 있는 값
-    columns=accident_data.columns.tolist(), # Pandas 데이터프레임에서 사용할 두 개의 열을 지정 (첫 번째 열: 지역 이름 (GeoJSON과 연결할 키) / 두 번째 열: 수치 데이터 (색상으로 표현될 값))
-    key_on="feature.properties.name", # geo_data와 data를 묶어주는 공통 기준. (geo_data에서 key_on 값 추출 = data 에서 columns 값 추출) 되도록 맞춰주면 됨
-    fill_color="YlOrRd",  # 색상도 더 눈에 띄는 색으로 바꿨음
-    fill_opacity=0.7,
-    line_opacity=1,
-    bins=thresholds,
-    legend_name="교통사고 건수",
-    reset=True
-).add_to(f_map)
+result_map = {}
+for item in area_list:
+    for key, val in item.items(): 
+        if key in cnt_map:
+            result_map[val] = cnt_map[key]
 
-st_folium(f_map, width='100%', height=600, returned_objects=[])
+if len(result_map) < 1 :
+    st.success(f"**조회 결과**가 없습니다")
+else :
 
-st.success(f"**지역별 교통사고 건수**를 색상 지도로 표시합니다.")
+
+    data_df = {
+        '지역명': result_map.keys(),
+        '사고 건수': result_map.values()
+    }
+
+    accident_data = pd.DataFrame(data_df)
+    
+    
+    ## ==================== chart
+    df = pd.DataFrame(accident_data)
+    sorted_data = df.sort_values(by='사고 건수', ascending=True)
+    title="지역별 교통사고 건수"
+    labels={"RegionName": "지역", "RegVegNocs": "교통사고 건수"}
+
+    st.subheader("지역별 교통사고 건수 차트")
+    common.make_chart(sorted_data, labels, char_title=title)
+
+
+    ## ==================== map
+    st.subheader("지역별 교통사고 건수 지도")
+    bins = np.linspace(min(result_map.values()), max(result_map.values()), 8)
+    common.make_fmap(accident_data, bins, "교통사고 건수")
+
+    st.success(f"**지역별 교통사고 건수**를 색상 지도로 표시합니다.")
+
+
 
 
 
