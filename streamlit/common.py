@@ -42,7 +42,7 @@ def get_car_list():
 
 ## ==================== 지역 목록 =================================
 def get_area_list():
-    area_rows = getDataFromDb("select * from TBL_CTY <> 0")
+    area_rows = getDataFromDb("select * from TBL_CTY where CTY_CODE <> 0")
     return area_rows
 
     # area_list = ['제주특별자치도', '경상남도', '경상북도', '전라남도', '전라북도', '충청남도', '충청북도', '강원도', '경기도', '세종특별자치시', '울산광역시', '대전광역시', '광주광역시', '인천광역시', '대구광역시', '부산광역시', '서울특별시']
@@ -69,7 +69,7 @@ def get_area_list():
 def search_box() :
         
     # 3개의 컬럼 생성
-    col1, col2, col3 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         target_year = st.selectbox(
@@ -89,7 +89,7 @@ def search_box() :
         st.write("검색 실행")
         isBtn = st.button("조회")
 
-    return {'target_year': target_year, 'target_area': target_area, 'target_veh': target_veh, 'is_btn': isBtn}
+    return {'target_year': target_year, 'target_veh': target_veh, 'is_btn': isBtn}
 
 
 
