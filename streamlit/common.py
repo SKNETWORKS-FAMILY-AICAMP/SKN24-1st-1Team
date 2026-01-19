@@ -42,12 +42,9 @@ def get_car_list():
 
 ## ==================== 지역 목록 =================================
 def get_area_list():
-    try :
-        area_rows = getDataFromDb("select * from TBL_CTY")
-        # area_list = [x[1] for x in area_rows]
-        return area_rows
-    except :
-        return ['제주특별자치도', '경상남도', '경상북도', '전라남도', '전라북도', '충청남도', '충청북도', '강원도', '경기도', '세종특별자치시', '울산광역시', '대전광역시', '광주광역시', '인천광역시', '대구광역시', '부산광역시', '서울특별시']
+    area_rows = getDataFromDb("select * from TBL_CTY <> 0")
+    return area_rows
+
     # area_list = ['제주특별자치도', '경상남도', '경상북도', '전라남도', '전라북도', '충청남도', '충청북도', '강원도', '경기도', '세종특별자치시', '울산광역시', '대전광역시', '광주광역시', '인천광역시', '대구광역시', '부산광역시', '서울특별시']
     # 제주특별자치도
     # 경상남도
@@ -72,7 +69,7 @@ def get_area_list():
 def search_box() :
         
     # 3개의 컬럼 생성
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(4)
 
     with col1:
         target_year = st.selectbox(
@@ -82,29 +79,13 @@ def search_box() :
         )
 
     with col2:
-        # 체크박스 있는 select
-        target_area = sac.cascader(
-            label='대상 지역',
-            placeholder='지역 선택',
-            items=[{"label": name, "value": code} for code, name in get_area_list()],
-            multiple=True,      # 드롭박스 안에서 다중 선택(체크박스) 활성화
-            clear=True,
-        )
-        # 기본 다중 select 
-        # target_area = st.multiselect(
-        #     "대상 지역",
-        #     ["제주특별자치도", "경상남도", "경상북도", "전라남도", "전라북도", "충청남도", "충청북도", "강원도", "경기도", "세종특별자치시", "울산광역시", "대전광역시", "광주광역시", "인천광역시", "대구광역시", "부산광역시", "서울특별시"],
-        #     ["서울특별시"] # 기본값으로 선택되어 있을 항목 (선택 사항)
-        # )
-        
-    with col3:
         target_veh = st.selectbox(
             "차종",
             get_car_list(),
             format_func=lambda x:x[1]
         )
 
-    with col4:
+    with col3:
         st.write("검색 실행")
         isBtn = st.button("조회")
 
