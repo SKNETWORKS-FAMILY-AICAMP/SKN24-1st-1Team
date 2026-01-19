@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-
+sys.path.append("C:\skn24\SKN24-1st-1Team")
 from sql import cty_pop_sql
 
 st.set_page_config(page_title="RoadKeeper - 도시 인구", layout="wide")

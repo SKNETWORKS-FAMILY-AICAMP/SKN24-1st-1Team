@@ -1,5 +1,4 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -8,6 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from urllib.request import urlretrieve
 from sql import cty_pop_sql
 import time
+
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 def update_city_pop() :
     path = 'chromedriver.exe'
@@ -67,5 +68,5 @@ def select_city_pop() :
     for r in rows:
         print(r)
 
-# update_city_pop()
+update_city_pop()
 # select_city_pop()

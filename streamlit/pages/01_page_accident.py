@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import common
+import common as common
 import numpy as np
 
 search_map = common.search_box()
