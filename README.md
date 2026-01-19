@@ -29,6 +29,7 @@
 
 ```
 .
+.
 ├── assets/                         # 이미지 파일 저장용 폴더
 │
 ├── crawling/                       # 크롤러 모듈
@@ -39,23 +40,20 @@
 │   ├── crawling_faq1.py            # 국토교통부 민원마당 FAQ 크롤러
 │   └── crawling_faq2.py            # 한국교통안전공단 FAQ 크롤러
 │
-├── pages/
-│   ├── city_pop_page.py            # 인구 페이지
-│   ├── faq_page.py                 # FAQ 페이지
-│   └──
-│
 ├── sql/                            # DB 관련 모듈
 │   ├── city_pop_sql.py
 │   ├── faq_sql.py
 │   └── roadkeeper.sql              # DB 스키마
 │
 ├── streamlit/                      # streamlit 코드 폴더
-│   ├── common.py
+│   ├── common.py                   # 화면 공통 모듈
 │   ├── main.py                     # 메인 페이지
 │   └── /pages                      # 페이지 리스트
-│       ├── 01_page_accident.py
-│       ├── 02_registered_car.py
-│       └── 03_faq.py
+│       ├── 01_page_accident.py     # 지역별 사고 건수
+│       ├── 02_registered_car.py    # 지역별 자동차 등록 대수
+│       ├── 03_reg_acd_ratio.py     # 지역별 자동차 등록 대수 대비 사고 건수
+│       ├── 04_faq.py               # faq 페이지
+│       └── 05_cty_pop.py           # 인구 수 페이지
 │
 ├── .gitignore                  # Git 제외 파일 설정
 ├── README.md                   # 프로젝트 개요 및 사용 방법
