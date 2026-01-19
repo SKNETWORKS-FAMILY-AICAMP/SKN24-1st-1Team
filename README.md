@@ -21,6 +21,17 @@
 
 ![python](https://img.shields.io/badge/python-0098FF.svg?style=for-the-badge&logo=python&logoColor=yellow) ![mysql](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![git](https://img.shields.io/badge/git-F05032.svg?style=for-the-badge&logo=git&logoColor=white) ![streamlit](https://img.shields.io/badge/streamlit-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white) ![selenium](https://img.shields.io/badge/selenium-43B02A.svg?style=for-the-badge&logo=selenium&logoColor=white) ![beautifulsoup](https://img.shields.io/badge/beautifulsoup-gray.svg?style=for-the-badge&logoColor=white)![pandas](https://img.shields.io/badge/pandas-150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
+국토교통통계누리<br>
+https://stat.molit.go.kr/portal/cate/statView.do?hRsId=58&hFormId=5498&hDivEng=&month_yn=<br>
+국가통계포털<br>
+https://kosis.kr/index/index.do<br>
+한국 인구수 통계<br>
+https://jumin.mois.go.kr/<br>
+국토교통부 민원마당<br>
+https://eminwon.molit.go.kr/faqList.do<br>
+한국교통안전공단<br>
+https://main.kotsa.or.kr/portal/bbs/faq_list.do?menuCode=04010100<br>
+
 ## WBS
 
 <img src="./assets/roadkeeper_wbs.png"/>
@@ -94,7 +105,7 @@
 
 ## 한 줄 회고
 
-- **김수진** : 일정이 주어졌을 때 그 기간과 아이디어가 현실적으로 가능한지 고려해 보는 능력을 향상했습니다. 다른 팀원분들과 데이터의 구조와 수집할 수 있는 방법을 의논하며 협업의 중요성을 체감했습니다. 파이썬이라는 언어에 익숙하지 않았는데 이번 프로젝트를 통해 selenium, requests, Beautiful Soup, pandas 등 여러 가지 라이브러리를 사용하며 파이썬 기반 데이터 처리와 시각화의 흐름을 이해할 수 있어서 좋았습니다. 제한된 시간 안에서 우선순위를 정하고 구현하는 경험으로 이후 프로젝트를 진행하는 데 큰 도움이 될 거 같습니다.
+- **김수진** : 일정이 주어졌을 때 그 기간동안 아이디어를 어떻게 구체화하고 개발할지 고민하는 법을 배울 수 있었습니다. 다른 팀원분들과 데이터의 구조와 수집할 수 있는 방법을 의논하며 협업의 중요성을 체감했습니다. 파이썬이라는 언어에 익숙하지 않았는데 이번 프로젝트를 통해 selenium, requests, Beautiful Soup, pandas 등 여러 가지 모듈을 사용하며 파이썬 기반 데이터 처리와 시각화의 흐름을 이해할 수 있어서 좋았습니다. 제한된 시간 안에서 우선순위를 정하고 구현하는 경험으로 이후 프로젝트를 진행하는 데 큰 도움이 될 거 같습니다.
 
 - **김은우** : 개발 협업을 처음 진행하면서 git 을 처음으로 제대로 써보고 DB 환경 구축 등을 진행하였는데 생각했던것과 달리 크롤링 코드를 짜거나 데이터를 처리하는 과정보다 초기환경 구축과 큰 틀을 짜는게 더 어려웠고 중요하다는 것을 체감하였습니다. 그래도 좋은 팀원분들 덕분에 빠르게 방향을 설정할 수 있었습니다. 맡은 부분 코드를 작성하고 거의 엎으면서 python 라이브러리 활용과 SQL에 대해 더 자세히 이해하게 됐습니다.
 
